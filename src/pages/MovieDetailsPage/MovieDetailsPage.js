@@ -35,7 +35,7 @@ export default class ShowDetailsPage extends Component {
     const { state } = this.props.location;
     const { history } = this.props;
 
-    if (state) {
+    if (state && state.from) {
       this.props.history.push(state.from);
       return;
     }
@@ -54,7 +54,7 @@ export default class ShowDetailsPage extends Component {
           type="button"
           onClick={this.handleGoHomePage}
         >
-          <span> Go Prev Page</span>
+          <span> Go back</span>
         </button>
         <h2>Movies Details</h2>
         {shows && (
