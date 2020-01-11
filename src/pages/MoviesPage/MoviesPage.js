@@ -39,22 +39,15 @@ export default class ShowMoviesPage extends Component {
   }
 
   setSearchQuery = query => {
+    if (!query) {
+      this.props.history.push(`${routes.MOVIES_PAGE}`);
+      return;
+    }
+
     this.props.history.push({
       ...this.props.location,
       search: `query=${query}`,
     });
-  };
-
-  handleGoHomePage = () => {
-    const { state } = this.props.location;
-    const { history } = this.props;
-
-    if (state) {
-      this.props.history.push(state.from);
-      return;
-    }
-
-    history.push(`${routes.HOME_PAGE}`);
   };
 
   render() {

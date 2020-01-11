@@ -35,7 +35,7 @@ export default class ShowDetailsPage extends Component {
     const { state } = this.props.location;
     const { history } = this.props;
 
-    if (state && state.from) {
+    if (this.props.location.state && this.props.location.state.from) {
       this.props.history.push(state.from);
       return;
     }
